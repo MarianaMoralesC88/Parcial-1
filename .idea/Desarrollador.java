@@ -1,75 +1,95 @@
 package co.edu.uniquindio.devplus;
 
+
+
 public class Desarrollador {
+
     private String codigo;
     private String equipoTrabajo;
-    private NivelDesarrollador;
+    private String nivel;
     private int maxProyectosSimultaneos;
     private double tarifaDia;
-    private EstadoDesarrollador estado;
+    private String estado;
 
-    public Desarrollador(string codigo, string equipoTrabajo,
-                         NivelDesarrollador, int maxProyectosSimultaneos,double tarifaDia){
-        this,codigo = codigo,
+
+    public Desarrollador(String codigo, String equipoTrabajo, String nivel, int maxProyectosSimultaneos, double tarifaDia) {
+        this.codigo = codigo;
         this.equipoTrabajo = equipoTrabajo;
         this.nivel = nivel;
         this.maxProyectosSimultaneos = maxProyectosSimultaneos;
         this.tarifaDia = tarifaDia;
-        this.estado = EstadoDesarrollador.DISPONIBLE;
-
+        this.estado = "Disponible";
     }
-    public boolean ValidarDisponibilidad(Date fechaInicio, Date fechaEntrega) {
-        if (this,estado == EstadoDesarrollador.DISPONIBLE){
+
+
+    public boolean validarDisponibilidad(Date fechaInicio, Date fechaEntrega) {
+        if (this.estado.equalsIgnoreCase("Disponible")) {
             return true;
         }
         return false;
     }
-    public boolean actualizarDisponibilidad(EstadoDesarrollador nuevoEstado) {
-        this.estado = nuevoEstado;
-        return true
+
+    public boolean actualizarDisponibilidad(String nuevoEstado) {
+        setEstado(nuevoEstado);
+        return true;
     }
-    public string getcodigo() {
+
+    public String getCodigo() {
         return codigo;
     }
-    public void setCodigo(string codigo){
+
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
     public String getEquipoTrabajo() {
         return equipoTrabajo;
     }
-    public void setEquipoTrabajo(string equipoTrabajo){
+
+    public void setEquipoTrabajo(String equipoTrabajo) {
         this.equipoTrabajo = equipoTrabajo;
     }
-    public NivelDesarrollador getNivel(){
+
+    public String getNivel() {
         return nivel;
     }
-    public void setNivel(NivelDesarrollador nivel){
-    this. nivel = nivel
+
+    public void setNivel(String nivel) {
+        if (nivel.equalsIgnoreCase("Junior") ||
+                nivel.equalsIgnoreCase("Semisenior") ||
+                nivel.equalsIgnoreCase("Senior")) {
+            this.nivel = nivel;
+        }
     }
-    public int getMaxProyectosSimultaneos(){
+
+    public int getMaxProyectosSimultaneos() {
         return maxProyectosSimultaneos;
     }
-    public void setMaxProyectosSimultaneos(int maxProyectosSimultaneos){
+
+    public void setMaxProyectosSimultaneos(int maxProyectosSimultaneos) {
         this.maxProyectosSimultaneos = maxProyectosSimultaneos;
     }
-    public double getTarifaDia(){
+
+    public double getTarifaDia() {
         return tarifaDia;
     }
-    public void setTarifaDia(double tarifaDia){
+
+    public void setTarifaDia(double tarifaDia) {
         this.tarifaDia = tarifaDia;
     }
 
-    public EstadoDesarrollador getEstado() {
+    public String getEstado() {
         return estado;
     }
-    public void setEstado(EstadoDesarrollador estado){
-        this.estado = estado;
+
+    public void setEstado(String estado) {
+        if (estado.equalsIgnoreCase("Disponible") ||
+                estado.equalsIgnoreCase("Asignado") ||
+                estado.equalsIgnoreCase("Ocupado") ||
+                estado.equalsIgnoreCase("En capacitacion")) {
+            this.estado = estado;
+        }
     }
 }
-
-
-
-
 
 
